@@ -1,0 +1,44 @@
+{
+  "name": "orderus",
+  "stats": {
+    "health": {
+      "description": "",
+      "min": 70,
+      "max": 100
+    },
+    "strength": {
+      "description": "",
+      "min": 70,
+      "max": 80
+    },
+    "defence": {
+      "description": "",
+      "min": 45,
+      "max": 55
+    },
+    "speed": {
+      "description": "",
+      "min": 40,
+      "max": 50
+    },
+    "luck": {
+      "description": "",
+      "min": "10%",
+      "max": "30%"
+    }
+  },
+  "skills": {
+    "rapid_strike": {
+      "description": "",
+      "affects": "strength",
+      "chance": "10%",
+      "how": "*2"
+    },
+    "magic_shield": {
+      "description": "",
+      "affects": "damage",
+      "chance": "20%",
+      "how": "*0.5"
+    }
+  }
+}

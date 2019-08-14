@@ -1,0 +1,32 @@
+{
+  "name": "beast",
+  "stats": {
+    "health": {
+      "description": "",
+      "min": 60,
+      "max": 90
+   },
+    "strength": {
+      "description": "",
+      "min": 60,
+      "max": 90
+    },
+    "defence": {
+      "description": "",
+      "min": 40,
+      "max": 60
+    },
+    "speed": {
+      "description": "",
+      "min": 40,
+      "max": 60
+    },
+    "luck": {
+      "description": "",
+      "min": "25%",
+      "max": "40%"
+    }
+  },
+  "skills": {
+  }
+}
