@@ -44,7 +44,7 @@
       "affects": "strength",
       "type": "percent",
       "chance": "10",
-      "how": "+(($damage}*2)",
+      "how": "+({$damage}*2)",
       "when": "attack"
     },
     "magic_shield": {
