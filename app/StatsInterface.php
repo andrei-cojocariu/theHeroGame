@@ -8,6 +8,7 @@
 
 namespace app\StatsInterface;
 
+require_once('StatsElement.php');
 
 interface StatsInterface
 {
