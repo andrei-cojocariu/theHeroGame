@@ -2,29 +2,39 @@
   "name": "beast",
   "stats": {
     "health": {
-      "description": "",
+      "name": "health",
+      "description": "Characters health range, generated after attack action is initiated.",
+      "type": "point",
       "min": 60,
       "max": 90
    },
     "strength": {
-      "description": "",
+      "name": "strength",
+      "description": "Characters strength range, generated after attack action is initiated.",
+      "type": "point",
       "min": 60,
       "max": 90
     },
     "defence": {
-      "description": "",
+      "name": "defence",
+      "description": "Characters defence range, generated after attack action is initiated.",
+      "type": "point",
       "min": 40,
       "max": 60
     },
     "speed": {
-      "description": "",
+      "name": "speed",
+      "description": "Characters speed range, generated after attack action is initiated.",
+      "type": "point",
       "min": 40,
       "max": 60
     },
     "luck": {
-      "description": "",
-      "min": "25%",
-      "max": "40%"
+      "name": "luck",
+      "description": "Characters luck range, generated after attack action is initiated.",
+      "type": "percent",
+      "min": "25",
+      "max": "40"
     }
   },
   "skills": {

@@ -2,43 +2,59 @@
   "name": "orderus",
   "stats": {
     "health": {
-      "description": "",
+      "name": "health",
+      "description": "Characters health range, generated after attack action is initiated.",
+      "type": "point",
       "min": 70,
       "max": 100
     },
     "strength": {
-      "description": "",
+      "name": "strength",
+      "description": "Characters strength range, generated after attack action is initiated.",
+      "type": "point",
       "min": 70,
       "max": 80
     },
     "defence": {
-      "description": "",
+      "name": "defence",
+      "description": "Characters defence range, generated after attack action is initiated.",
+      "type": "point",
       "min": 45,
       "max": 55
     },
     "speed": {
-      "description": "",
+      "name": "speed",
+      "description": "Characters speed range, generated after attack action is initiated.",
+      "type": "point",
       "min": 40,
       "max": 50
     },
     "luck": {
-      "description": "",
-      "min": "10%",
-      "max": "30%"
+      "name": "luck",
+      "description": "Characters luck range, generated after attack action is initiated.",
+      "type": "percent",
+      "min": "10",
+      "max": "30"
     }
   },
   "skills": {
     "rapid_strike": {
-      "description": "",
+      "name": "rapid strike",
+      "description": "Strike twice while it’s his turn to attack.",
       "affects": "strength",
-      "chance": "10%",
-      "how": "*2"
+      "type": "percent",
+      "chance": "10",
+      "how": "+(($damage}*2)",
+      "when": "attack"
     },
     "magic_shield": {
-      "description": "",
-      "affects": "damage",
-      "chance": "20%",
-      "how": "*0.5"
+      "name": "magic shield",
+      "description": "Takes only half of the usual damage when an enemy attacks.",
+      "affects": "attack",
+      "type": "percent",
+      "chance": "20",
+      "how": "-({$damage}*0.5)",
+      "when": "defence"
     }
   }
 }

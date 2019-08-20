@@ -8,8 +8,11 @@
 
 namespace app\SkillsInterface;
 
+require_once("SkillElement.php");
 
 interface SkillsInterface
 {
+    function setSkills($skills);
+    function getSkills();
 
 }

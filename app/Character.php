@@ -28,7 +28,7 @@ class Character extends CharacterAbstract
         $this->setStats($stats);
 
         $skills = new Skills($character->skills);
-        $this->setSkills($skills);
+        $this->setSkills($skills->getSkills());
     }
 
 }

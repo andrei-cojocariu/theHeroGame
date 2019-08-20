@@ -11,16 +11,16 @@ namespace app\Skills;
 require_once ("SkillsAbstract.php");
 
 use app\SkillsAbstract\SkillsAbstract;
+use app\SkillElement\SkillElement;
 
 class Skills extends SkillsAbstract
 {
-    public function __construct($skills) {
-        $i = 0;
-        foreach ($skills as $skill) {
-            if ($i==0) {
-                var_dump($skill);
-                $i++;
-            }
+    public function __construct($skills)
+    {
+        $skillArray = array();
+        foreach ($skills as $key => $skill) {
+            $skillArray[$key] = new SkillElement($skill);
         }
+        $this->setSkills((object)$skillArray);
     }
 }
