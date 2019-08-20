@@ -9,7 +9,6 @@
 namespace app\StatsAbstract;
 
 require_once('StatsInterface.php');
-require_once('StatsElement.php');
 
 use app\StatsInterface\StatsInterface;
 use app\StatsElement\StatsElement;

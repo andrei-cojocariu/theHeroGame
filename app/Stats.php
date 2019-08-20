@@ -11,7 +11,6 @@ namespace app\Stats;
 require_once("StatsAbstract.php");
 
 use app\StatsAbstract\StatsAbstract;
-use app\StatsElement\StatsElement;
 
 class Stats extends StatsAbstract
 {
