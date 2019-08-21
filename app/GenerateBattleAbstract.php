@@ -69,8 +69,18 @@ abstract class GenerateBattleAbstract implements GenerateBattleInterface
         $return['health'] = $player->getGeneratedHealth();
         $return['strength'] = $player->getGeneratedStrength();
         $return['defence'] = $player->getGeneratedDefence();
+        $return['luck'] = $player->getGeneratedLuck();
 
         return $return;
+    }
+
+    private function isLucky ($luck) {
+        $luckyNumber = rand(0, 100);
+        if ($luckyNumber >= 100-$luck) {
+            return true;
+        }
+
+        return false;
     }
 
     protected function doBattle($player1, $player2)
@@ -82,12 +92,20 @@ abstract class GenerateBattleAbstract implements GenerateBattleInterface
 
         while ($player1Stats['health'] > 0 && $player2Stats['health'] > 0) {
             if ($round % 2 != 0) {
-                $this->battle[$round]["damage"] = $player1Stats['strength'] - $player2Stats['defence'];
-                $player2Stats['health'] -= $this->battle[$round]["damage"];
+                if ($this->isLucky($player2Stats['luck'])) {
+                    $this->battle[$round]["damage"] = 'miss';
+                } else {
+                    $this->battle[$round]["damage"] = $player1Stats['strength'] - $player2Stats['defence'];
+                    $player2Stats['health'] -= $this->battle[$round]["damage"];
+                }
 
             } else {
-                $this->battle[$round]["damage"] = $player2Stats['strength'] - $player1Stats['defence'];
-                $player1Stats['health'] -= $this->battle[$round]["damage"];
+                if ($this->isLucky($player1Stats['luck'])) {
+                    $this->battle[$round]["damage"] = 'miss';
+                } else {
+                    $this->battle[$round]["damage"] = $player2Stats['strength'] - $player1Stats['defence'];
+                    $player1Stats['health'] -= $this->battle[$round]["damage"];
+                }
             }
 
             $this->battle[$round][$player1->getName()]['health'] = $player1Stats['health'];
