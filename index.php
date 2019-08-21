@@ -8,8 +8,10 @@
 
 require_once('vendor\autoload.php');
 require_once('app\Character.php');
+require_once('app\GenerateBattle.php');
 
 use app\Character\Character;
+use app\GenerateBattle\GenerateBattle;
 
 $orderus = new Character('characters/orderus.json');
 $beast = new Character('characters/beast.json');
@@ -216,6 +218,61 @@ $beast = new Character('characters/beast.json');
                     </td>
                 </tr>
             </table>
+            <h2>Battle Stage:</h2>
+            <?php
+            $battle = new GenerateBattle ($orderus, $beast);
+            $rounds = $battle->getBattle();
+
+            $i = 1;
+            foreach ($rounds as $round) {
+                ?>
+
+                <h3>Round <?php echo $i; ?>:</h3>
+                <table>
+                    <tr>
+                        <td>
+                            <h4><?php echo $battle->getPlayer1()->getName(); ?></h4>
+                            <ul>
+                                <li>Health: <?php echo $round[$battle->getPlayer1()->getName()]['health']; ?></li>
+                                <li>Strength: <?php echo $battle->getPlayer1()->getGeneratedStrength(); ?></li>
+                                <li>Defence: <?php echo $battle->getPlayer1()->getGeneratedDefence(); ?></li>
+                                <li>Speed: <?php echo $battle->getPlayer1()->getGeneratedSpeed(); ?></li>
+                                <li>Luck: <?php echo $battle->getPlayer1()->getGeneratedLuck(); ?></li>
+                            </ul>
+                            <h5>Skills Ussed:</h5>
+                            <ul>
+                                <li>None</li>
+                            </ul>
+                        </td>
+                        <td valign="top" align="center">
+                            <?php
+                                if ($i%2 != 0) {
+                                    echo "> Attacks: ".$round["damage"]." damage >";
+                                } else {
+                                    echo "< Attacks: ".$round["damage"]." damage <";
+                                }
+                            ?>
+                        </td>
+                        <td>
+                            <h4><?php echo $battle->getPlayer2()->getName(); ?></h4>
+                            <ul>
+                                <li>Health: <?php echo $round[$battle->getPlayer2()->getName()]['health'];; ?></li>
+                                <li>Strength: <?php echo $battle->getPlayer2()->getGeneratedStrength(); ?></li>
+                                <li>Defence: <?php echo $battle->getPlayer2()->getGeneratedDefence(); ?></li>
+                                <li>Speed: <?php echo $battle->getPlayer2()->getGeneratedSpeed(); ?></li>
+                                <li>Luck: <?php echo $battle->getPlayer2()->getGeneratedLuck(); ?></li>
+                            </ul>
+                            <h5>Skills Ussed:</h5>
+                            <ul>
+                                <li>None available</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+                <?php
+                $i++;
+            }
+            ?>
         </td>
     </tr>
     </tr>
