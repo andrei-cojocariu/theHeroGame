@@ -14,9 +14,6 @@ use app\Character\Character;
 $orderus = new Character('characters/orderus.json');
 $beast = new Character('characters/beast.json');
 
-//$orderus->generateCharacter('characters/orderus.json');
-//$beast->generateCharacter('characters/beast.json');
-
 ?>
 
 <html>
@@ -182,7 +179,43 @@ $beast = new Character('characters/beast.json');
             </ul>
         </td>
         <td valign="top" align="left">
-            sadasd
+            <h2>Battle:</h2>
+            <table width="100%">
+                <tr>
+                    <td width="50%" align="left" valign="top">
+                        <h2>
+                            <?php
+                            $orderus->generateBattleStats($orderus->getStats());
+                            echo $orderus->getName();
+                            ?>
+                        </h2>
+                        <h3>Battle stats:</h3>
+                        <ul>
+                            <li>Health: <?php echo $orderus->getGeneratedHealth(); ?></li>
+                            <li>Strength: <?php echo $orderus->getGeneratedStrength(); ?></li>
+                            <li>Defence: <?php echo $orderus->getGeneratedDefence(); ?></li>
+                            <li>Speed: <?php echo $orderus->getGeneratedSpeed(); ?></li>
+                            <li>Luck: <?php echo $orderus->getGeneratedLuck(); ?></li>
+                        </ul>
+                    </td>
+                    <td width="50%" align="left" valign="top">
+                        <h2>
+                            <?php
+                            $beast->generateBattleStats($orderus->getStats());
+                            echo $beast->getName();
+                            ?>
+                        </h2>
+                        <h3>Battle stats:</h3>
+                        <ul>
+                            <li>Health: <?php echo $beast->getGeneratedHealth(); ?></li>
+                            <li>Strength: <?php echo $beast->getGeneratedStrength(); ?></li>
+                            <li>Defence: <?php echo $beast->getGeneratedDefence(); ?></li>
+                            <li>Speed: <?php echo $beast->getGeneratedSpeed(); ?></li>
+                            <li>Luck: <?php echo $beast->getGeneratedLuck(); ?></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
         </td>
     </tr>
     </tr>

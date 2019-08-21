@@ -17,6 +17,12 @@ use app\Skills\Skills;
 class Character extends CharacterAbstract
 {
 
+    /**
+     * Loads Character Data
+     *
+     * Character constructor.
+     * @param $json
+     */
     public function __construct($json)
     {
         $json = $this->getAbsolutePath($json);

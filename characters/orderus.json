@@ -33,8 +33,8 @@
       "name": "luck",
       "description": "Characters luck range, generated after attack action is initiated.",
       "type": "percent",
-      "min": "10",
-      "max": "30"
+      "min": 10,
+      "max": 30
     }
   },
   "skills": {

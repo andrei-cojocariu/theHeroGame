@@ -19,6 +19,13 @@ abstract class CharacterAbstract implements CharacterInterface
     protected $stats;
     protected $skills;
 
+    protected $generatedHealth;
+    protected $generatedStrength;
+    protected $generatedDefence;
+    protected $generatedSpeed;
+    protected $generatedLuck;
+
+
     /**
      * Returns absolute path of a given file
      *
@@ -63,5 +70,74 @@ abstract class CharacterAbstract implements CharacterInterface
     public function setSkills($skills)
     {
         $this->skills = $skills;
+    }
+
+    private function generateHealth($health)
+    {
+        $health = rand($health->getMin(), $health->getMax());
+
+        return $health;
+    }
+
+    public function getGeneratedHealth()
+    {
+        return $this->generatedHealth;
+    }
+
+    private function generateStrength($strength)
+    {
+        $strength = rand($strength->getMin(), $strength->getMax());
+
+        return $strength;
+    }
+
+    public function getGeneratedStrength()
+    {
+        return $this->generatedStrength;
+    }
+
+    private function generateDefence($defence)
+    {
+        $defence = rand($defence->getMin(), $defence->getMax());
+
+        return $defence;
+    }
+
+    public function getGeneratedDefence()
+    {
+        return $this->generatedDefence;
+    }
+
+    private function generateSpeed($speed)
+    {
+        $speed = rand($speed->getMin(), $speed->getMax());
+
+        return $speed;
+    }
+
+    public function getGeneratedSpeed()
+    {
+        return $this->generatedSpeed;
+    }
+
+    private function generateLuck($luck)
+    {
+        $luck = rand($luck->getMin(), $luck->getMax());
+
+        return $luck;
+    }
+
+    public function getGeneratedLuck()
+    {
+        return $this->generatedLuck;
+    }
+
+    public function generateBattleStats($stats)
+    {
+        $this->generatedHealth = $this->generateHealth($stats->getHealth());
+        $this->generatedStrength = $this->generateStrength($stats->getStrength());
+        $this->generatedDefence = $this->generateDefence($stats->getDefence());
+        $this->generatedSpeed = $this->generateSpeed($stats->getSpeed());
+        $this->generatedLuck = $this->generateLuck($stats->getLuck());
     }
 }
